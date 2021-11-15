@@ -5,18 +5,19 @@ UrlRest ="https://graph.sop.strategio.cloud/v1beta1/relay"
 headers ={"x-hasura-admin-secret"  : "x5cHTWnDb7N2vh3eJZYzamgsUXBVkw",
            "content-type":"application/json"}
 
-
-
 #Funcion
-def insert_sellIn(query,variables):
+def insert_sellOut(query,variables):
     request = requests.post(UrlRest, json={'query': query ,"variables":variables}, headers=headers,)
     if request.status_code == 200:
-        print("Ingresado Correctamente")
+        print(request.json())
         return request.json()
         
     else :
         raise print(Exception('Error Mutacion'))
 
 
-#insert_sellIn(query,variables)
+# archivo = open('output/variables.json')
+# variables = json.load(archivo)
+
+# insert_sellOut(query,variables)
 

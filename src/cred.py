@@ -2,7 +2,7 @@ def read_Cred():
     objeto = {
         "BDF" : {
         "myHostname" : "51.222.82.148",
-        "myDatabase": "STRATEGIO_BRUTO_BDF",
+        "myDatabase": "STRATEGIO_TOTAL_BDF_PERU",
         "myUsername": "sa",
         "myPassword": "9aj8d2.1ej92-huF!HFDH-8hy91e2",
       }

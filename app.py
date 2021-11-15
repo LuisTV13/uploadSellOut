@@ -1,7 +1,7 @@
 from src.cred import getCred
 from src.sqlcon import execute_Sellout_dataframe
 from src.createjson  import generateJson
-from src.upHasura import insert_sellIn
+from src.upHasura import insert_sellOut
 import json 
 
 corporativo ='BDF'
@@ -15,13 +15,14 @@ generateJson(dataframe)
 #SubirAlHASURA
     #QUERY
 query = """
-mutation prueba($objects: [prueba1_insert_input!]!) {
-  insert_prueba1(objects: $objects, on_conflict: {constraint:prueba1_pkey}) {
+mutation sellout($objects: [Sell_out_insert_input!]!) {
+  insert_Sell_out(objects: $objects, on_conflict: {constraint:Sell_out_pkey, update_columns:nart}) {
     returning {
-      cogiCli
+      codigo_producto_bdf
     }
   }
 }
+
 
 
 """
@@ -29,6 +30,6 @@ mutation prueba($objects: [prueba1_insert_input!]!) {
 archivo = open('output/variables.json')
 variables = json.load(archivo)
 #===========================================#
-insert_sellIn(query,variables)
+insert_sellOut(query,variables)
 
 
