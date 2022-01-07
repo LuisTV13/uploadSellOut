@@ -15,6 +15,25 @@ def insert_sellOut(query,variables):
     else :
         raise print(Exception('Error Mutacion'))
 
+def insert_Stock(query,variables):
+    request = requests.post(UrlRest, json={'query': query ,"variables":variables}, headers=headers,)
+    if request.status_code == 200:
+        print(request.json())
+        return request.json()
+        
+    else :
+        raise print(Exception('Error Mutacion'))
+
+
+def deleteTable(query):
+    request = requests.post(UrlRest, json={'query': query}, headers=headers,)
+    if request.status_code == 200:
+        print(request.json())
+        return request.json()
+        
+    else :
+        raise print(Exception('Error Mutacion'))
+
 
 # archivo = open('output/variables.json')
 # variables = json.load(archivo)
